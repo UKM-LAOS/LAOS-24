@@ -12,6 +12,11 @@ class CourseCategory extends Model implements HasMedia
 
     protected $guarded = ['id'];
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('course-category-image')
