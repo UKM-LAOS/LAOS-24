@@ -29,12 +29,17 @@ class Course extends Model implements HasMedia
 
     public function courseStacks()
     {
-        return $this->belongsToMany(CourseStack::class)->withPivot('course_id', 'course_stack_id');
+        return $this->belongsToMany(CourseStack::class, 'course_course_stacks')->withPivot('course_id', 'course_stack_id');
     }
 
     public function courseReviews()
     {
         return $this->hasMany(CourseReview::class);
+    }
+
+    public function myCourses()
+    {
+        return $this->hasMany(MyCourse::class);
     }
 
     public function registerMediaCollections(): void
