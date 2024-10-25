@@ -16,4 +16,12 @@ class LandingController extends Controller
             'categories' => CourseCategory::with(['media'])->withCount('courses')->get()
         ]);
     }
+
+    public function show($slug)
+    {
+        $course = Course::with(['media', 'courseChapters.courseLessons', 'mentor', 'courseReviews'])->withCount(['myCourses', 'courseChapters'])->whereSlug($slug)->firstOrFail();
+        return view('laos-course.pages.guest.landing-page.show', [
+            'course' => $course
+        ]);
+    }
 }

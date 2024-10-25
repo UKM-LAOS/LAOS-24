@@ -4,7 +4,8 @@
     </div>
     <ul class="flex font-medium">
         <li>
-            <a href="/" class="text-white hover:text-teal-500 transition-all duration-200 text-lg px-6 py-3">
+            <a href="{{ route('laos-course.frontpage.index') }}"
+                class="text-white hover:text-teal-500 transition-all duration-200 text-lg px-6 py-3">
                 Home
             </a>
         </li>

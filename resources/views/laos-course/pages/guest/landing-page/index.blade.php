@@ -100,7 +100,7 @@
                                 {{ ucfirst($course->level) }}
                             </h5>
                         </div>
-                        <a href="/course/{{ $course->slug }}" class="link-wrapped"></a>
+                        <a href="{{ route('laos-course.frontpage.show', $course->slug) }}" class="link-wrapped"></a>
                     </div>
                 </div>
             @empty
