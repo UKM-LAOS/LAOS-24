@@ -85,7 +85,8 @@ class MentorResource extends Resource
                     ->label('Detail Course')
                     ->color('info')
                     ->icon('heroicon-o-academic-cap')
-                    ->url(fn(User $record) => MentorCoursePage::getUrl(['record' => $record->id])),
+                    ->url(fn(User $record) => MentorCoursePage::getUrl(['record' => $record->id]))
+                    ->hidden(fn(User $record) => $record->courses()->count() === 0),
                 Tables\Actions\EditAction::make()
                     ->slideOver()
                     ->modalWidth('10xl'),
