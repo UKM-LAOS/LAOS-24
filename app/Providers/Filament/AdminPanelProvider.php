@@ -9,6 +9,7 @@ use App\Filament\Admin\Resources\DiscountResource;
 use App\Filament\Admin\Resources\DivisionResource;
 use App\Filament\Admin\Resources\MentorResource;
 use App\Filament\Admin\Resources\ProgramResource;
+use App\Filament\Admin\Resources\TransactionResource;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -110,7 +111,7 @@ class AdminPanelProvider extends PanelProvider
                             ...CourseCategoryResource::getNavigationItems(),
                             ...CourseReviewResource::getNavigationItems(),
                             ...DiscountResource::getNavigationItems(),
-                            // ...TransactionResource::getNavigationItems(),
+                            ...TransactionResource::getNavigationItems(),
                             // ...CourseStackResource::getNavigationItems(),
                             // ...ReviewResource::getNavigationItems(),
                         ]),

@@ -64,7 +64,9 @@ class DiscountResource extends Resource
                 Tables\Columns\TextColumn::make('code')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('percentage')
-                    ->numeric()
+                    ->getStateUsing(function(Discount $discount) {
+                        return $discount->percentage . '%';
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('type')
                     ->getStateUsing(function(Discount $discount) {
