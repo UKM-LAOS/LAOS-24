@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Discount extends Model
 {
     protected $guarded = ['id'];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
