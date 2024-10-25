@@ -11,6 +11,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
+use FilipFonal\FilamentLogManager\FilamentLogManager;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -65,6 +66,7 @@ class AdminPanelProvider extends PanelProvider
                         directory: 'avatars', // image will be stored in 'storage/app/public/avatars
                         rules: 'mimes:jpeg,png|max:1024' //only accept jpeg and png files with a maximum size of 1MB
                     ),
+                FilamentLogManager::make(),
             ])
             ->userMenuItems([
                 MenuItem::make()

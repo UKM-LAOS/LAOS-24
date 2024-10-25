@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "bezhansalleh/filament-shield": "*",
         "filament/filament": "^3.2",
+        "filipfonal/filament-log-manager": "^2.0",
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
