@@ -2,12 +2,17 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Admin\Resources\DivisionResource;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
+use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -80,6 +85,43 @@ class AdminPanelProvider extends PanelProvider
                     ->label(fn() => "Edit Profile")
                     ->url(fn (): string => EditProfilePage::getUrl())
                     ->icon('heroicon-m-cog-6-tooth')
-            ]);
+            ])
+            ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+                return $builder->groups([
+                    NavigationGroup::make()
+                        ->items([
+                            ...Dashboard::getNavigationItems(),
+                        ]),
+                    NavigationGroup::make('Company Profile')
+                        ->items([
+                            ...DivisionResource::getNavigationItems(),
+                            // ...ArticleResource::getNavigationItems(),
+                            // ...ProgramResource::getNavigationItems(),
+                        ]),
+                    // NavigationGroup::make('LAOS Course')
+                    //     ->items([
+                    //         ...MentorResource::getNavigationItems(),
+                    //         ...CourseCategoryResource::getNavigationItems(),
+                    //         ...CourseResource::getNavigationItems(),
+                    //         ...DiscountResource::getNavigationItems(),
+                    //         ...TransactionResource::getNavigationItems(),
+                            // ...CourseStackResource::getNavigationItems(),
+                            // ...ReviewResource::getNavigationItems(),
+                    //     ]),
+                    NavigationGroup::make('Settings')
+                        ->items([
+                            NavigationItem::make('Roles & Permissions')
+                                ->icon('heroicon-s-shield-check')
+                                ->url(fn() => route('filament.admin.resources.shield.roles.index')),
+                            NavigationItem::make('Environment Editor')
+                                ->icon('heroicon-s-cog-6-tooth')
+                                ->url(fn() => route('filament.admin.pages.env-editor')),
+                            NavigationItem::make('Logs')
+                                ->icon('heroicon-s-server')
+                                ->url(fn() => route('filament.admin.pages.logs')),
+                        ]),
+                ]);
+            })
+            ->spa();
     }
 }
