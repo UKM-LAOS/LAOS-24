@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Admin\Resources\ArticleResource;
 use App\Filament\Admin\Resources\CourseCategoryResource;
+use App\Filament\Admin\Resources\CourseReviewResource;
 use App\Filament\Admin\Resources\DivisionResource;
 use App\Filament\Admin\Resources\MentorResource;
 use App\Filament\Admin\Resources\ProgramResource;
@@ -106,7 +107,7 @@ class AdminPanelProvider extends PanelProvider
                         ->items([
                             ...MentorResource::getNavigationItems(),
                             ...CourseCategoryResource::getNavigationItems(),
-                            // ...CourseResource::getNavigationItems(),
+                            ...CourseReviewResource::getNavigationItems(),
                             // ...DiscountResource::getNavigationItems(),
                             // ...TransactionResource::getNavigationItems(),
                             // ...CourseStackResource::getNavigationItems(),
