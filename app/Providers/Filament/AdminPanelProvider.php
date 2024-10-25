@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Admin\Resources\ArticleResource;
 use App\Filament\Admin\Resources\DivisionResource;
+use App\Filament\Admin\Resources\MentorResource;
 use App\Filament\Admin\Resources\ProgramResource;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
@@ -100,16 +101,16 @@ class AdminPanelProvider extends PanelProvider
                             ...ArticleResource::getNavigationItems(),
                             ...ProgramResource::getNavigationItems(),
                         ]),
-                    // NavigationGroup::make('LAOS Course')
-                    //     ->items([
-                    //         ...MentorResource::getNavigationItems(),
-                    //         ...CourseCategoryResource::getNavigationItems(),
-                    //         ...CourseResource::getNavigationItems(),
-                    //         ...DiscountResource::getNavigationItems(),
-                    //         ...TransactionResource::getNavigationItems(),
+                    NavigationGroup::make('LAOS Course')
+                        ->items([
+                            ...MentorResource::getNavigationItems(),
+                            // ...CourseCategoryResource::getNavigationItems(),
+                            // ...CourseResource::getNavigationItems(),
+                            // ...DiscountResource::getNavigationItems(),
+                            // ...TransactionResource::getNavigationItems(),
                             // ...CourseStackResource::getNavigationItems(),
                             // ...ReviewResource::getNavigationItems(),
-                    //     ]),
+                        ]),
                     NavigationGroup::make('Settings')
                         ->items([
                             NavigationItem::make('Roles & Permissions')
