@@ -26,6 +26,7 @@ class DivisionResource extends Resource
             ->schema([
                 Section::make([
                     Forms\Components\TextInput::make('name')
+                        ->label('Nama Divisi')
                         ->required()
                         ->unique(ignoreRecord: true)
                         ->maxLength(255),
