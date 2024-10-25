@@ -62,13 +62,16 @@ class DiscountResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('code')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Kode'),
                 Tables\Columns\TextColumn::make('percentage')
+                    ->label('Persentase Potongan')
                     ->getStateUsing(function(Discount $discount) {
                         return $discount->percentage . '%';
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('type')
+                    ->label('Tipe Diskon')
                     ->getStateUsing(function(Discount $discount) {
                         return match($discount->type) {
                             'limit_by_date' => 'Limit by date',
@@ -76,6 +79,7 @@ class DiscountResource extends Resource
                         };
                     }),
                 Tables\Columns\TextColumn::make('expired_at')
+                    ->label('Expired Pada')
                     ->getStateUsing(function(Discount $discount) {
                         if($discount->expired_at)
                         {
@@ -86,6 +90,7 @@ class DiscountResource extends Resource
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('usage_limit')
+                    ->label('Batas Penggunaan')
                     ->numeric()
                     ->getStateUsing(function(Discount $discount) {
                         if($discount->usage_limit)
