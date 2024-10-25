@@ -9,6 +9,7 @@
         "bezhansalleh/filament-shield": "^3.2",
         "filament/filament": "^3.2",
         "filipfonal/filament-log-manager": "^2.0",
+        "geo-sot/filament-env-editor": "^0.0.5",
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
