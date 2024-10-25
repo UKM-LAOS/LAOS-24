@@ -34,9 +34,12 @@ class TransactionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->query(Transaction::query()->with('myCourse.user')->whereHas('myCourse', function($query)
+            ->query(Transaction::query()->whereHas('myCourse', function($query)
             {
-                $query->where('mentor_id', auth()->user()->id);
+                $query->whereHas('course', function($q)
+                {
+                    $q->whereMentorId(auth()->id());
+                });
             }))
             ->columns([
                 TextColumn::make('order_id')
