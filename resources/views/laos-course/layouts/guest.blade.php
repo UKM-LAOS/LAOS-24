@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="{{ asset('laos-course/images/laos.png') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/laos-course/style.css') }}">
 </head>
 
 <body class="scroll-smooth">
