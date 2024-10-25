@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Mentor\Resources\CourseResource;
+use App\Filament\Mentor\Resources\TransactionResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -84,6 +85,7 @@ class MentorPanelProvider extends PanelProvider
                     NavigationGroup::make('LAOS Course')
                         ->items([
                             ...CourseResource::getNavigationItems(),
+                            ...TransactionResource::getNavigationItems(),
                         ]),
                 ]);
             })
