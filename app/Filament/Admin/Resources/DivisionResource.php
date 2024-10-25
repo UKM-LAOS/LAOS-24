@@ -53,7 +53,9 @@ class DivisionResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->slideOver()
+                    ->modalWidth('10xl'),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

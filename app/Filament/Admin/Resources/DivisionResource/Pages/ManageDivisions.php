@@ -13,7 +13,9 @@ class ManageDivisions extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->slideOver()
+                ->modalWidth('10xl'),
         ];
     }
 }
