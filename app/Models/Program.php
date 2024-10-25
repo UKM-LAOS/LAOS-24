@@ -10,7 +10,7 @@ class Program extends Model implements HasMedia
 {
     use InteractsWithMedia;
     
-    protected $fillable = ['id'];
+    protected $guarded = ['id'];
 
     protected $casts = [
         'program_schedules' => 'array'

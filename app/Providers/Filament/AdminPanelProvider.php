@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Admin\Resources\ArticleResource;
 use App\Filament\Admin\Resources\DivisionResource;
+use App\Filament\Admin\Resources\ProgramResource;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -97,7 +98,7 @@ class AdminPanelProvider extends PanelProvider
                         ->items([
                             ...DivisionResource::getNavigationItems(),
                             ...ArticleResource::getNavigationItems(),
-                            // ...ProgramResource::getNavigationItems(),
+                            ...ProgramResource::getNavigationItems(),
                         ]),
                     // NavigationGroup::make('LAOS Course')
                     //     ->items([
