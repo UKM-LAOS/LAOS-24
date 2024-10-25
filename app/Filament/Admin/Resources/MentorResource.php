@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\MentorResource\Pages;
+use App\Filament\Admin\Resources\MentorResource\Pages\MentorCoursePage;
 use App\Filament\Admin\Resources\MentorResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
@@ -83,8 +84,8 @@ class MentorResource extends Resource
                 Action::make('Detail Course')
                     ->label('Detail Course')
                     ->color('info')
-                    ->icon('heroicon-o-academic-cap'),
-                    // ->url(fn(User $record) => MentorCoursePage::getUrl(['record' => $record->id])),
+                    ->icon('heroicon-o-academic-cap')
+                    ->url(fn(User $record) => MentorCoursePage::getUrl(['record' => $record->id])),
                 Tables\Actions\EditAction::make()
                     ->slideOver()
                     ->modalWidth('10xl'),
@@ -101,6 +102,7 @@ class MentorResource extends Resource
     {
         return [
             'index' => Pages\ManageMentors::route('/'),
+            'course' => Pages\MentorCoursePage::route('/{record}/course'),
         ];
     }
 }
