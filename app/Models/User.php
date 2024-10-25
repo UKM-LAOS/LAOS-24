@@ -60,4 +60,8 @@ class User extends Authenticatable implements HasAvatar
     public function courses() {
         return $this->hasMany(Course::class, 'mentor_id');
     }
+
+    public function courseReviews() {
+        return $this->hasMany(CourseReview::class);
+    }
 }

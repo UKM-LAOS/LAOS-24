@@ -32,6 +32,11 @@ class Course extends Model implements HasMedia
         return $this->belongsToMany(CourseStack::class)->withPivot('course_id', 'course_stack_id');
     }
 
+    public function courseReviews()
+    {
+        return $this->hasMany(CourseReview::class);
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('course-thumbnail')
